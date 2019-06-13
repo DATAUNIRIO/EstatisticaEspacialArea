@@ -31,23 +31,10 @@ mapa(base@data$Vaginal,"Parto Vaginal")
 mapa(base@data$p_v,"Proporcao Parto Vaginal")
 
 ##Parto Cesario
-mapa(base@data$Cesario,"Parto Vaginal")
+mapa(base@data$Cesario,"Parto Cesario")
 
 ##Parto Ignorado
 mapa(base@data$Ignorado,"Parto Ignorado")
 
 
 
-library(tmap)
-library(XML)
-library(cartogram)
-
-
-### Deformando os mapas
-
-tm_shape(base) + tm_fill("Vaginal", style="jenks") +
-  tm_borders() + tm_layout(frame=F)
-
-uf_vaginal <- cartogram(base, "Vaginal", itermax=4)
-
-tm_shape(uf_vaginal) + tm_fill("Vaginal", style="jenks") + tm_borders() + tm_layout(frame=F)
