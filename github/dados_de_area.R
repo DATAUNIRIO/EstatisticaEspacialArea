@@ -10,25 +10,15 @@ base <- merge(banco,dados,by.x="UF",by.y="UF")
 dim(base)
 
 
-mapa <- function(valor, titulo){
+mapa <- function(valor, titulo,cor){
   brks <- round(quantile(valor,probs=seq(0,1,0.25)),3)
-  cols <- COR
+  cols <- cor
   plot(base, col=cols[findInterval(valor, brks)])
   legend("bottomleft",legend=leglabs(brks, "<", ">="),fill=cols, bty="n", cex=0.8)
   title(main=titulo)
 }
 
 
-##Parto Vaginal
-par(mfrow=c(1,2))
-mapa(base@data$Vaginal,"Parto Vaginal")
-mapa(base@data$p_v,"Proporcao Parto Vaginal")
-
-##Parto Cesario
-mapa(base@data$Cesario,"Parto Cesario")
-
-##Parto Ignorado
-mapa(base@data$Ignorado,"Parto Ignorado")
 
 
 

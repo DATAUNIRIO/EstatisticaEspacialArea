@@ -1,4 +1,6 @@
+##install.packages(c("rgdal","maptools","RColorBrewer"))
 library(rgdal)
+library(maptools)
 library(RColorBrewer)
 
 ##carregando o mapa - o comando abaixo abrir uma caixa de dialogo. 
@@ -15,15 +17,26 @@ dados <- read.csv('https://raw.githubusercontent.com/DATAUNIRIO/Estatistica_Espa
 
 #Escolhendo a cor
 COR<-brewer.pal(4,'YlOrRd')
-#COR<-brewer.pal(4,'Blues')
+COR2<-brewer.pal(4,'Blues')
+COR3<-brewer.pal(4,'Reds')
+COR4<-brewer.pal(4,'Purples')
 COR
 
 # Utilizando a funcao MAPA no github
 source('https://raw.githubusercontent.com/DATAUNIRIO/Estatistica_Espacial/master/github/dados_de_area.R')
 
+##Parto Vaginal
+par(mfrow=c(1,2))
+mapa(base$Vaginal,"Parto Vaginal",COR)
+mapa(base$p_v,"Proporcao Parto Vaginal",COR2)
 
+##Parto Cesario
+mapa(base$Cesario,"Parto Cesario",COR3)
+##Parto Ignorado
+mapa(base$Ignorado,"Parto Ignorado",COR4)
+
+##install.packages(c("tmap","cartogram"))
 library(tmap)
-library(XML)
 library(cartogram)
 
 # Utilizando o pacote cartograma no github

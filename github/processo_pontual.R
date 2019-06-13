@@ -1,7 +1,4 @@
-##install.packages(c("splancs","spatstat")
 
-require(splancs)
-require(spatstat)
 
 ###################
 ### Metodo Quadrats
