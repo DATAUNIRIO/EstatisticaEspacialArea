@@ -21,8 +21,15 @@ COR
 # Utilizando a funcao MAPA no github
 source('https://raw.githubusercontent.com/DATAUNIRIO/Estatistica_Espacial/master/github/dados_de_area.R')
 
+
+library(tmap)
+library(XML)
+library(cartogram)
+
 # Utilizando o pacote cartograma no github
 source('https://raw.githubusercontent.com/DATAUNIRIO/Estatistica_Espacial/master/github/cartograma.R')
 
-tm_shape(base) + tm_fill("Vaginal", style="jenks") +
-  tm_borders() + tm_layout(frame=F)
+mapatradicional
+anamorfismo
+
+

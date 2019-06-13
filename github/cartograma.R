@@ -2,8 +2,7 @@
 
 ### Deformando os mapas
 
-Mapatradicional<- tm_shape(base) + tm_fill("Vaginal", style="jenks") +
-  tm_borders() + tm_layout(frame=F)
+mapatradicional<- tm_shape(base) + tm_fill("Vaginal", style="jenks") + tm_borders() + tm_layout(frame=F)
 
 uf_vaginal <- cartogram(base, "Vaginal", itermax=4)
 
