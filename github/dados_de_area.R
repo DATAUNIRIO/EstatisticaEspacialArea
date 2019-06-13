@@ -5,11 +5,11 @@ library(maptools)
 library(rgdal)
 
 ##carregando o mapa - o comando abaixo abrir? uma caixa de dialogo. Voce dever? clicar no arquivo Brasil.shp
-banco <-readShapeSpatial(file.choose())
-plot(banco) # plota o mapa do Brasil
+#banco <-readShapeSpatial(file.choose())
+#plot(banco) # plota o mapa do Brasil
 
 ##carregando a base de dados - o comando abaixo abrir? uma caixa de di?logo. Voc? dever? clicar no arquivo parto_2014.csv
-dados <- read.csv(file.choose(),sep=";",dec=",")
+dados <- read.csv('https://raw.githubusercontent.com/DATAUNIRIO/Estatistica_Espacial/master/parto_2014.csv',sep=";",dec=",")
 
 ## Relaciona os estados do "banco" com as informa??es dos "dados"
 base <- merge(banco,dados,by.x="UF",by.y="UF")
