@@ -1,6 +1,5 @@
 library(rgdal)
 
-
 ##carregando o mapa - o comando abaixo abrir uma caixa de dialogo. 
 ##Voce dever clicar no arquivo Brasil.shp
 
@@ -11,10 +10,7 @@ plot(banco) # plota o mapa do Brasil
 
 source('https://raw.githubusercontent.com/DATAUNIRIO/Estatistica_Espacial/master/github/dados_de_area.R')
 
-##Parto Cesario
-mapa(base$Cesario,"Parto Cesario")
+source('https://raw.githubusercontent.com/DATAUNIRIO/Estatistica_Espacial/master/github/cartograma.R')
 
-##Parto Ignorado
-mapa(base$Ignorado,"Parto Ignorado")
-
-
+tm_shape(base) + tm_fill("Vaginal", style="jenks") +
+  tm_borders() + tm_layout(frame=F)

@@ -2,7 +2,8 @@
 library(spdep)
 library(stringr)
 library(maptools)
-library(rgdal)
+
+
 
 ##carregando o mapa - o comando abaixo abrir? uma caixa de dialogo. Voce dever? clicar no arquivo Brasil.shp
 #banco <-readShapeSpatial(file.choose())
@@ -18,7 +19,7 @@ dim(base)
 
 mapa <- function(valor, titulo){
   brks <- round(quantile(valor,probs=seq(0,1,0.25)),3)
-  cols <- c("gray90","gray70","gray50","gray20","gray20")
+  cols <- COR
   plot(base, col=cols[findInterval(valor, brks)])
   legend("bottomleft",legend=leglabs(brks, "<", ">="),fill=cols, bty="n", cex=0.8)
   title(main=titulo)
