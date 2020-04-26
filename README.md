@@ -1,4 +1,37 @@
 # Estatistica Espacial para dados de areas e de pontos  
+
+# funcao para criar um dataframe para facilitar o merge com shapefiles.
+# baseada no trabalho do José de Jesus Filho
+# fazer o mesmo para os municipios do rio
+df<-c()
+funcao_estados<-function(x){  
+  CODIGO<-c(12,27,16,13,29,23,53,32,52,21,51,50,31,15,25,41,26,22,33,24,43,11,14,42,35,28,17)
+SIGLAS<-c("AC","AL","AP","AM","BA","CE","DF","ES","GO","MA","MT","MS","MG","PA","PB","PR","PE","PI","RJ","RN","RS","RO","RR","SC","SP","SE","TO")
+  NOMES<-c("Acre","Alagoas","Amapá","Amazonas","Bahia","Ceara","Distrito Federal",
+           "Espírito Santo","Goiás","Maranhão","Mato Grosso","Mato Grosso do Sul",
+           "Minas Gerais","Pará","Paraíba","Paraná","Pernambuco","Piauí","Rio de Janeiro",
+           "Rio Grande do Norte","Rio Grande do Sul","Rondônia","Roraima","Santa Catarina",
+           "São Paulo","Sergipe","Tocantins")
+  
+  df<-data.frame(CD_GEOCODU=CODIGO,SIGLA=SIGLAS, NOME=NOMES,stringsAsFactors = F)
+  return(df)
+}
+
+
+funcao_municipios<-function(x){  
+  CODIGO<-c()
+  NOMES<-c()
+  df<-data.frame(CD_GEOCODU=CODIGO, NOME=NOMES,stringsAsFactors = F)
+  return(df)
+}
+
+banco_com_siglas<-funcao_estados()
+bancoRJ_com_siglas<-funcao_municipios()
+banco_com_siglas
+
+
+-----------------------------------------------------------------------------------------------------------------
+
 ## Código para geração de mapas do prof. Alexandre Silva do UNIRIO  
 ######install.packages(c("splancs","spatstat")  
 require(splancs)  
